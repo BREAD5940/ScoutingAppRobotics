@@ -12,5 +12,13 @@ public class RobotEntry extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_robot_entry);
+        Button btn = (Button)findViewById(R.id.button3);
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(RobotEntry.this, GameData.class));
+            }
+        });
     }
 }
