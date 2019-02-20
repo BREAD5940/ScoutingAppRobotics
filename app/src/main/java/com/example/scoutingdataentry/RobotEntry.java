@@ -20,5 +20,15 @@ public class RobotEntry extends AppCompatActivity {
                 startActivity(new Intent(RobotEntry.this, GameData.class));
             }
         });
+
+        Button btn1 = (Button)findViewById(R.id.button2);
+
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(RobotEntry.this, PitData.class));
+            }
+        });
+
     }
 }
