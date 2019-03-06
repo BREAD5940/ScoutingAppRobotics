@@ -393,6 +393,7 @@ public class GameData extends AppCompatActivity {
 
         //Run through all the keys (teams), setting toPrint to all the values, and then printing it all out
         for (int key : data.keySet()) {
+            toPrint.setTeamNumber(data.get(key).getTeamNumber());
             toPrint.setAlliance(data.get(key).getAlliance());
             toPrint.setStartLevel(data.get(key).getStartLevel());
             toPrint.setsCargoShip(data.get(key).getsCargoShip());
@@ -430,8 +431,7 @@ public class GameData extends AppCompatActivity {
             if (isWritable()) {
                 System.out.println("External Storage is Writable to");
                 try {
-                    System.out.println("HELLLLOOOO???");
-                    fOut = cntxt.openFileOutput(filename, Context.MODE_APPEND);
+                    fOut = new FileOutputStream(file, true);
                     osw = new OutputStreamWriter(fOut);
                     osw.write(dataToSave);
                     osw.close();
