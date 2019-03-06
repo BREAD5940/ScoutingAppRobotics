@@ -925,33 +925,13 @@
                 android:layout_height="wrap_content"
                 android:text="Select if it broke" />
 
-            <TextView
-                android:id="@+id/textView27"
-                android:layout_width="wrap_content"
-                android:layout_height="37dp"
-                android:layout_weight="1"
-                android:text="End Game Points"
-                android:textAlignment="textEnd"
-                android:textStyle="bold"
-                tools:textSize="20dp" />
-
             <EditText
                 android:id="@+id/editText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="number" />
-
-
-            <TextView
-                android:id="@+id/textView28"
-                android:layout_width="wrap_content"
-                android:layout_height="37dp"
-                android:layout_weight="1"
-                android:text="Notes"
-                android:textAlignment="textEnd"
-                android:textStyle="bold"
-                tools:textSize="20dp" />
+                android:inputType="number"
+                android:hint="End Game Points" />
 
             <EditText
                 android:id="@+id/editText2"
@@ -959,7 +939,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="Notes" />
+                android:hint="Notes" />
 
             <LinearLayout
                 android:layout_width="match_parent"

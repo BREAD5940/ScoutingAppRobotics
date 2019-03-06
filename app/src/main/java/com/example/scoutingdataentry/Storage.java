@@ -25,6 +25,8 @@ public class Storage {
     boolean yellowCard = false;
     boolean redCard = false;
     boolean broke = false;
+    int points = 0;
+    String notes = "null";
 
     public int getTeamNumber() {
         return teamNumber;
@@ -114,7 +116,7 @@ public class Storage {
         this.fouls = fouls;
     }
 
-    public boolean isYellowCard() {
+    public boolean getYellowCard() {
         return yellowCard;
     }
 
@@ -122,7 +124,7 @@ public class Storage {
         this.yellowCard = yellowCard;
     }
 
-    public boolean isRedCard() {
+    public boolean getRedCard() {
         return redCard;
     }
 
@@ -130,7 +132,7 @@ public class Storage {
         this.redCard = redCard;
     }
 
-    public boolean isBroke() {
+    public boolean getBroke() {
         return broke;
     }
 
@@ -153,9 +155,6 @@ public class Storage {
     public void setNotes(String notes) {
         this.notes = notes;
     }
-
-    int points = 0;
-    String notes = "null";
 
     public int getStartLevel() {
         return startLevel;
@@ -214,6 +213,10 @@ public class Storage {
     }
 
 
+    @Override
+    public String toString() {
+        return alliance + "," + startLevel + "," + sCargoShip + "," + sCargoRocket + "," + sCargoDrop + "," + sHatchShip + "," + sHatchRocket + "," + sHatchDrop + "," + gCargoShip + "," + gCargoRocket + "," + gCargoDrop + "," + gHatchShip + "," + gHatchRocket + "," + gHatchDrop + "," + endLevel + "," + techFouls + "," + fouls + "," + yellowCard + "," + redCard + "," + broke + "," + points + "," + notes;
 
+    }
 
 }

@@ -18,7 +18,7 @@ public class DataLogger {
         getData().put(team, dataToAdd);
     }
 
-    public Object getData(int team) {
+    public Storage getData(int team) {
         return getData().get(team);
     }
 
