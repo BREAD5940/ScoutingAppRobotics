@@ -5,6 +5,8 @@ public class Storage {
     public Storage() {}
 
     int teamNumber = 0;
+
+    //Game Data Variables
     String alliance = "null";
     int startLevel = 0;
     int sCargoShip = 0;
@@ -28,6 +30,157 @@ public class Storage {
     int points = 0;
     String notes = "null";
 
+    //Pit Data Variables
+    boolean floorIntake = false;
+    boolean sidewaysElevator = false;
+    boolean shooter = false;
+    String intakeType = "null";
+    String language = "null";
+    //Drive Train, dTrain, get it? It's cuz it's a shorter way of writing it
+    String dTrainType = "null";
+    String strategy = "null";
+    String sandstormType = "null";
+    String wheelSize = "null";
+    String weight = "null";
+    String elevatorSpeed = "null";
+    String highDTrainSpeed = "null";
+    String lowDTrainSpeed = "null";
+    int elevatorHeight = 0;
+    int habScale = 0;
+    //I want this to be the working title:
+    int roboPiggybacks = 0;
+
+
+    public boolean getFloorIntake() {
+        return floorIntake;
+    }
+
+    public void setFloorIntake(boolean floorIntake) {
+        this.floorIntake = floorIntake;
+    }
+
+    public boolean getSidewaysElevator() {
+        return sidewaysElevator;
+    }
+
+    public void setSidewaysElevator(boolean sidewaysElevator) {
+        this.sidewaysElevator = sidewaysElevator;
+    }
+
+    public boolean getShooter() {
+        return shooter;
+    }
+
+    public void setShooter(boolean shooter) {
+        this.shooter = shooter;
+    }
+
+    public String getIntakeType() {
+        return intakeType;
+    }
+
+    public void setIntakeType(String intakeType) {
+        this.intakeType = intakeType;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
+    }
+
+    public String getdTrainType() {
+        return dTrainType;
+    }
+
+    public void setdTrainType(String dTrainType) {
+        this.dTrainType = dTrainType;
+    }
+
+    public String getStrategy() {
+        return strategy;
+    }
+
+    public void setStrategy(String strategy) {
+        this.strategy = strategy;
+    }
+
+    public String getSandstormType() {
+        return sandstormType;
+    }
+
+    public void setSandstormType(String sandstormType) {
+        this.sandstormType = sandstormType;
+    }
+
+    public String getWheelSize() {
+        return wheelSize;
+    }
+
+    public void setWheelSize(String wheelSize) {
+        this.wheelSize = wheelSize;
+    }
+
+    public String getWeight() {
+        return weight;
+    }
+
+    public void setWeight(String weight) {
+        this.weight = weight;
+    }
+
+    public String getElevatorSpeed() {
+        return elevatorSpeed;
+    }
+
+    public void setElevatorSpeed(String elevatorSpeed) {
+        this.elevatorSpeed = elevatorSpeed;
+    }
+
+    public String getHighDTrainSpeed() {
+        return highDTrainSpeed;
+    }
+
+    public void setHighDTrainSpeed(String highDTrainSpeed) {
+        this.highDTrainSpeed = highDTrainSpeed;
+    }
+
+    public String getLowDTrainSpeed() {
+        return lowDTrainSpeed;
+    }
+
+    public void setLowDTrainSpeed(String lowDTrainSpeed) {
+        this.lowDTrainSpeed = lowDTrainSpeed;
+    }
+
+    public int getElevatorHeight() {
+        return elevatorHeight;
+    }
+
+    public void setElevatorHeight(int elevatorHeight) {
+        this.elevatorHeight = elevatorHeight;
+    }
+
+    public int getHabScale() {
+        return habScale;
+    }
+
+    public void setHabScale(int habScale) {
+        this.habScale = habScale;
+    }
+
+    public int getRoboPiggybacks() {
+        return roboPiggybacks;
+    }
+
+    public void setRoboPiggybacks(int roboPiggybacks) {
+        this.roboPiggybacks = roboPiggybacks;
+    }
+
+
+
     public int getTeamNumber() {
         return teamNumber;
     }
@@ -35,6 +188,8 @@ public class Storage {
     public void setTeamNumber(int teamNumber) {
         this.teamNumber = teamNumber;
     }
+
+
 
     public String getAlliance() {
         return alliance;
@@ -215,7 +370,7 @@ public class Storage {
 
     @Override
     public String toString() {
-        return teamNumber + "," + alliance + "," + startLevel + "," + sCargoShip + "," + sCargoRocket + "," + sCargoDrop + "," + sHatchShip + "," + sHatchRocket + "," + sHatchDrop + "," + gCargoShip + "," + gCargoRocket + "," + gCargoDrop + "," + gHatchShip + "," + gHatchRocket + "," + gHatchDrop + "," + endLevel + "," + techFouls + "," + fouls + "," + yellowCard + "," + redCard + "," + broke + "," + points + "," + notes + "\n";
+        return teamNumber + "," + alliance + "," + startLevel + "," + sCargoShip + "," + sCargoRocket + "," + sCargoDrop + "," + sHatchShip + "," + sHatchRocket + "," + sHatchDrop + "," + gCargoShip + "," + gCargoRocket + "," + gCargoDrop + "," + gHatchShip + "," + gHatchRocket + "," + gHatchDrop + "," + endLevel + "," + techFouls + "," + fouls + "," + yellowCard + "," + redCard + "," + broke + "," + points + "," + floorIntake + "," + sidewaysElevator + "," + intakeType + "," + language + "," + dTrainType + "," + wheelSize + "," + weight + "," + elevatorSpeed + "," + highDTrainSpeed + "," + lowDTrainSpeed + "," + elevatorHeight + "," + habScale + "," + roboPiggybacks + "," + strategy + "," + shooter + "," + sandstormType + "," + notes + "\n";
 
     }
 

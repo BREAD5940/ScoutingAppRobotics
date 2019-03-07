@@ -33,8 +33,6 @@ import static android.os.Environment.DIRECTORY_DOWNLOADS;
 
 public class GameData extends AppCompatActivity {
 
-    private static final String LOG_TAG = GameData.class.getName();
-
     int minteger1 = 0;
     int minteger2 = 0;
     int minteger3 = 0;
@@ -51,8 +49,8 @@ public class GameData extends AppCompatActivity {
     int minteger14 = 0;
     int mintegerType;
     TextView displayInteger;
-    EditText gamePoints;
-    EditText notes;
+    EditText gamePointsBox;
+    EditText notesBox;
     RadioGroup radioGroup1;
     RadioButton selectedRadioButton;
     CheckBox yellowCard;
@@ -77,7 +75,6 @@ public class GameData extends AppCompatActivity {
                 new AdapterView.OnItemSelectedListener() {
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                         mTempStorage.setStartLevel(Integer.parseInt(parent.getSelectedItem().toString()));
-                        System.out.println("value added to startlevel: " + mTempStorage.getStartLevel());
                     }
 
                     public void onNothingSelected(AdapterView<?> parent) {
@@ -94,7 +91,6 @@ public class GameData extends AppCompatActivity {
                 new AdapterView.OnItemSelectedListener() {
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                         mTempStorage.setEndLevel(Integer.parseInt(parent.getSelectedItem().toString()));
-                        System.out.println("value added to endlevel: " + mTempStorage.getEndLevel());
                     }
 
                     public void onNothingSelected(AdapterView<?> parent) {
@@ -378,12 +374,12 @@ public class GameData extends AppCompatActivity {
     public void saveData(View view) {
 
         //Grabbing points
-        gamePoints = findViewById(R.id.editText);
-        mTempStorage.setPoints(Integer.parseInt(gamePoints.getText().toString()));
+        gamePointsBox = findViewById(R.id.editText);
+        mTempStorage.setPoints(Integer.parseInt(gamePointsBox.getText().toString()));
 
         //Grabbing notes
-        notes = findViewById(R.id.editText2);
-        mTempStorage.setNotes(notes.getText().toString());
+        notesBox = findViewById(R.id.editText2);
+        mTempStorage.setNotes(notesBox.getText().toString());
 
         //dataLogging
         dataLogger.addData(mTempStorage.getTeamNumber(), mTempStorage);
@@ -416,13 +412,13 @@ public class GameData extends AppCompatActivity {
             toPrint.setBroke(data.get(key).getBroke());
             toPrint.setPoints(data.get(key).getPoints());
             toPrint.setNotes(data.get(key).getNotes());
-            writeCSV(toPrint.toString(), filename, GameData.this);
+            writeCSV(toPrint.toString(), filename);
         }
-
+        //Places you back in Robot Entry
         startActivity(new Intent(GameData.this, RobotEntry.class));
     }
 
-    public void writeCSV(String dataToSave, String filename, Context cntxt) {
+    public void writeCSV(String dataToSave, String filename) {
         File file = new File(Environment.getExternalStoragePublicDirectory(DIRECTORY_DOWNLOADS), filename);
         FileOutputStream fOut;
         OutputStreamWriter osw;
@@ -437,7 +433,6 @@ public class GameData extends AppCompatActivity {
                     osw.close();
                     Toast.makeText(this, "CSV in downloads folder on phone", Toast.LENGTH_LONG).show();
                     MediaScannerConnection.scanFile(this, new String[] {file.toString()}, null, null);
-                    System.out.println("Should have printed");
                 } catch (java.io.IOException e) {
                     e.printStackTrace();
                     Toast.makeText(this, "Failed to save CSV", Toast.LENGTH_LONG).show();
