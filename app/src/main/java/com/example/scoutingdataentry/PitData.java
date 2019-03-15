@@ -1,8 +1,10 @@
 package com.example.scoutingdataentry;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.media.MediaScannerConnection;
 import android.os.Environment;
+import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -15,6 +17,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
+import android.content.ContentResolver;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -22,6 +25,7 @@ import java.io.OutputStreamWriter;
 import java.util.HashMap;
 
 import static android.os.Environment.DIRECTORY_DOWNLOADS;
+import static java.security.AccessController.getContext;
 
 public class PitData extends AppCompatActivity {
 
@@ -138,26 +142,6 @@ public class PitData extends AppCompatActivity {
         });
 
         //Language RadioGroup
-        radioGroup2 = findViewById(R.id.radioGroup2);
-        radioGroup2.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                selectedRadioButton = findViewById(checkedId);
-                mTempStorage.setLanguage(selectedRadioButton.getText().toString());
-            }
-        });
-
-        //Drive Train Type RadioGroup
-        radioGroup3 = findViewById(R.id.radioGroup3);
-        radioGroup3.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                selectedRadioButton = findViewById(checkedId);
-                mTempStorage.setLanguage(selectedRadioButton.getText().toString());
-            }
-        });
-
-        //Strategy RadioGroup
         radioGroup4 = findViewById(R.id.radioGroup4);
         radioGroup4.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -167,13 +151,33 @@ public class PitData extends AppCompatActivity {
             }
         });
 
-        //Sandstorm Type RadioGroup
+        //Drive Train Type RadioGroup
         radioGroup5 = findViewById(R.id.radioGroup5);
         radioGroup5.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 selectedRadioButton = findViewById(checkedId);
-                mTempStorage.setLanguage(selectedRadioButton.getText().toString());
+                mTempStorage.setdTrainType(selectedRadioButton.getText().toString());
+            }
+        });
+
+        //Strategy RadioGroup
+        radioGroup2 = findViewById(R.id.radioGroup2);
+        radioGroup2.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                selectedRadioButton = findViewById(checkedId);
+                mTempStorage.setStrategy(selectedRadioButton.getText().toString());
+            }
+        });
+
+        //Sandstorm Type RadioGroup
+        radioGroup3 = findViewById(R.id.radioGroup3);
+        radioGroup3.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                selectedRadioButton = findViewById(checkedId);
+                mTempStorage.setSandstormType(selectedRadioButton.getText().toString());
             }
         });
     }
@@ -184,7 +188,7 @@ public class PitData extends AppCompatActivity {
 
         //Grabbing weight
         weightBox = findViewById(R.id.editText5);
-        mTempStorage.setWeight(wheelSizeBox.getText().toString());
+        mTempStorage.setWeight(weightBox.getText().toString());
 
         //Grabbing elevator speed
         elevatorSpeedBox = findViewById(R.id.editText6);
@@ -199,14 +203,17 @@ public class PitData extends AppCompatActivity {
         mTempStorage.setLowDTrainSpeed(lowDTrainSpeed.getText().toString());
 
         //Grabbing notes
-        notesBox = findViewById(R.id.editText2);
+        notesBox = findViewById(R.id.editText3);
         mTempStorage.setNotes(notesBox.getText().toString());
 
         //dataLogging
         dataLogger.addData(mTempStorage.getTeamNumber(), mTempStorage);
         HashMap<Integer, Storage> data = dataLogger.getData();
 
-        String filename = "pitdata.csv";
+        //Grabbing Android Device ID
+        String android_id = Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
+
+        String filename = android_id + "_pitdata.csv";
 
         //Run through all the keys (teams), setting toPrint to all the values, and then printing it all out
         for (int key : data.keySet()) {

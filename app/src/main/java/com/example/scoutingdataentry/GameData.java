@@ -1,12 +1,14 @@
 package com.example.scoutingdataentry;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.media.MediaScannerConnection;
 import android.os.Bundle;
 import android.os.Environment;
+import android.provider.Settings;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -25,10 +27,13 @@ import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.HashMap;
 
 import static android.os.Environment.DIRECTORY_DOWNLOADS;
+import static java.security.AccessController.getContext;
+import android.provider.Settings.Secure;
 
 
 public class GameData extends AppCompatActivity {
@@ -375,50 +380,60 @@ public class GameData extends AppCompatActivity {
 
         //Grabbing points
         gamePointsBox = findViewById(R.id.editText);
-        mTempStorage.setPoints(Integer.parseInt(gamePointsBox.getText().toString()));
+        if(gamePointsBox.getText().toString() == null || gamePointsBox.getText().toString().equals("null")) {
+            Toast.makeText(this, "Provide the End Game Points", Toast.LENGTH_SHORT);
+            System.out.println("THIS IS WHAT THE GAMEPOINTS IS EQUIVALENT TO: " + gamePointsBox.getText().toString());
+        } else {
+            mTempStorage.setPoints(gamePointsBox.getText().toString());
+            System.out.println("THIS IS WHAT THE GAMEPOINTS IS EQUIVALENT TO: " + gamePointsBox.getText().toString());
+            //Grabbing notes
+            notesBox = findViewById(R.id.editText2);
+            mTempStorage.setNotes(notesBox.getText().toString());
 
-        //Grabbing notes
-        notesBox = findViewById(R.id.editText2);
-        mTempStorage.setNotes(notesBox.getText().toString());
+            //dataLogging
+            dataLogger.addData(mTempStorage.getTeamNumber(), mTempStorage);
+            HashMap<Integer, Storage> data = dataLogger.getData();
 
-        //dataLogging
-        dataLogger.addData(mTempStorage.getTeamNumber(), mTempStorage);
-        HashMap<Integer, Storage> data = dataLogger.getData();
+            //Grabbing Android Device ID
+            String android_id = Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
 
-        String filename = "gamedata.csv";
+            String filename = android_id + "_gamedata.csv";
 
-        //Run through all the keys (teams), setting toPrint to all the values, and then printing it all out
-        for (int key : data.keySet()) {
-            toPrint.setTeamNumber(data.get(key).getTeamNumber());
-            toPrint.setAlliance(data.get(key).getAlliance());
-            toPrint.setStartLevel(data.get(key).getStartLevel());
-            toPrint.setsCargoShip(data.get(key).getsCargoShip());
-            toPrint.setsCargoRocket(data.get(key).getsCargoRocket());
-            toPrint.setsCargoDrop(data.get(key).getsCargoDrop());
-            toPrint.setsHatchShip(data.get(key).getsHatchShip());
-            toPrint.setsHatchRocket(data.get(key).getsHatchRocket());
-            toPrint.setsHatchDrop(data.get(key).getsHatchDrop());
-            toPrint.setgCargoShip(data.get(key).getgCargoShip());
-            toPrint.setgCargoRocket(data.get(key).getgCargoRocket());
-            toPrint.setgCargoDrop(data.get(key).getgCargoDrop());
-            toPrint.setgHatchShip(data.get(key).getgHatchShip());
-            toPrint.setgHatchRocket(data.get(key).getgHatchRocket());
-            toPrint.setgHatchDrop(data.get(key).getgHatchDrop());
-            toPrint.setEndLevel(data.get(key).getEndLevel());
-            toPrint.setTechFouls(data.get(key).getTechFouls());
-            toPrint.setFouls(data.get(key).getFouls());
-            toPrint.setYellowCard(data.get(key).getYellowCard());
-            toPrint.setRedCard(data.get(key).getRedCard());
-            toPrint.setBroke(data.get(key).getBroke());
-            toPrint.setPoints(data.get(key).getPoints());
-            toPrint.setNotes(data.get(key).getNotes());
-            writeCSV(toPrint.toString(), filename);
+            //Run through all the keys (teams), setting toPrint to all the values, and then printing it all out
+            for (int key : data.keySet()) {
+                toPrint.setTeamNumber(data.get(key).getTeamNumber());
+                toPrint.setAlliance(data.get(key).getAlliance());
+                toPrint.setStartLevel(data.get(key).getStartLevel());
+                toPrint.setsCargoShip(data.get(key).getsCargoShip());
+                toPrint.setsCargoRocket(data.get(key).getsCargoRocket());
+                toPrint.setsCargoDrop(data.get(key).getsCargoDrop());
+                toPrint.setsHatchShip(data.get(key).getsHatchShip());
+                toPrint.setsHatchRocket(data.get(key).getsHatchRocket());
+                toPrint.setsHatchDrop(data.get(key).getsHatchDrop());
+                toPrint.setgCargoShip(data.get(key).getgCargoShip());
+                toPrint.setgCargoRocket(data.get(key).getgCargoRocket());
+                toPrint.setgCargoDrop(data.get(key).getgCargoDrop());
+                toPrint.setgHatchShip(data.get(key).getgHatchShip());
+                toPrint.setgHatchRocket(data.get(key).getgHatchRocket());
+                toPrint.setgHatchDrop(data.get(key).getgHatchDrop());
+                toPrint.setEndLevel(data.get(key).getEndLevel());
+                toPrint.setTechFouls(data.get(key).getTechFouls());
+                toPrint.setFouls(data.get(key).getFouls());
+                toPrint.setYellowCard(data.get(key).getYellowCard());
+                toPrint.setRedCard(data.get(key).getRedCard());
+                toPrint.setBroke(data.get(key).getBroke());
+                toPrint.setPoints(data.get(key).getPoints());
+                toPrint.setNotes(data.get(key).getNotes());
+                writeCSV(toPrint.toString(), filename);
+            }
+            //Places you back in Robot Entry
+            startActivity(new Intent(GameData.this, RobotEntry.class));
         }
-        //Places you back in Robot Entry
-        startActivity(new Intent(GameData.this, RobotEntry.class));
+
     }
 
     public void writeCSV(String dataToSave, String filename) {
+
         File file = new File(Environment.getExternalStoragePublicDirectory(DIRECTORY_DOWNLOADS), filename);
         FileOutputStream fOut;
         OutputStreamWriter osw;
@@ -433,7 +448,7 @@ public class GameData extends AppCompatActivity {
                     osw.close();
                     Toast.makeText(this, "CSV in downloads folder on phone", Toast.LENGTH_LONG).show();
                     MediaScannerConnection.scanFile(this, new String[] {file.toString()}, null, null);
-                } catch (java.io.IOException e) {
+                } catch (IOException e) {
                     e.printStackTrace();
                     Toast.makeText(this, "Failed to save CSV", Toast.LENGTH_LONG).show();
                 }
@@ -441,7 +456,7 @@ public class GameData extends AppCompatActivity {
                 System.out.println("External Storage is NOT Writable to");
             }
 
-        //Works for writing new file, if previously nonexistent
+        //Works for writing new file, if file is previously nonexistent
         } else {
             System.out.println("Gamedata.csv does not exist");
             if (isWritable()) {
@@ -453,7 +468,7 @@ public class GameData extends AppCompatActivity {
                     osw.close();
                     Toast.makeText(this, "CSV in downloads folder on phone", Toast.LENGTH_LONG).show();
                     MediaScannerConnection.scanFile(this, new String[] {file.toString()}, null, null);
-                } catch (java.io.IOException e) {
+                } catch (IOException e) {
                     e.printStackTrace();
                     Toast.makeText(this, "Failed to save CSV", Toast.LENGTH_LONG).show();
                 }

@@ -27,7 +27,7 @@ public class Storage {
     boolean yellowCard = false;
     boolean redCard = false;
     boolean broke = false;
-    int points = 0;
+    String points = "null";
     String notes = "null";
 
     //Pit Data Variables
@@ -50,6 +50,15 @@ public class Storage {
     //I want this to be the working title:
     int roboPiggybacks = 0;
 
+    boolean isGameData;
+
+    public boolean getIsGameData() {
+        return isGameData;
+    }
+
+    public void setIsGameData(boolean gameData) {
+        isGameData = gameData;
+    }
 
     public boolean getFloorIntake() {
         return floorIntake;
@@ -295,11 +304,11 @@ public class Storage {
         this.broke = broke;
     }
 
-    public int getPoints() {
+    public String getPoints() {
         return points;
     }
 
-    public void setPoints(int points) {
+    public void setPoints(String points) {
         this.points = points;
     }
 
@@ -370,8 +379,11 @@ public class Storage {
 
     @Override
     public String toString() {
-        return teamNumber + "," + alliance + "," + startLevel + "," + sCargoShip + "," + sCargoRocket + "," + sCargoDrop + "," + sHatchShip + "," + sHatchRocket + "," + sHatchDrop + "," + gCargoShip + "," + gCargoRocket + "," + gCargoDrop + "," + gHatchShip + "," + gHatchRocket + "," + gHatchDrop + "," + endLevel + "," + techFouls + "," + fouls + "," + yellowCard + "," + redCard + "," + broke + "," + points + "," + floorIntake + "," + sidewaysElevator + "," + intakeType + "," + language + "," + dTrainType + "," + wheelSize + "," + weight + "," + elevatorSpeed + "," + highDTrainSpeed + "," + lowDTrainSpeed + "," + elevatorHeight + "," + habScale + "," + roboPiggybacks + "," + strategy + "," + shooter + "," + sandstormType + "," + notes + "\n";
-
+        if (isGameData)
+            return teamNumber + "," + alliance + "," + startLevel + "," + sCargoShip + "," + sCargoRocket + "," + sCargoDrop + "," + sHatchShip + "," + sHatchRocket + "," + sHatchDrop + "," + gCargoShip + "," + gCargoRocket + "," + gCargoDrop + "," + gHatchShip + "," + gHatchRocket + "," + gHatchDrop + "," + endLevel + "," + techFouls + "," + fouls + "," + yellowCard + "," + redCard + "," + broke + "," + points + "," + "WHAT IS GOING ON GAME DATA" + "," + "," + "," + "," + "," + "," + "," + "," + "," + "," + "," + "," + "," + "," + "," + "," + notes + "\n";
+        else{
+            return teamNumber + "," + "," + "," + "," + "," + "," + "," + "," + "," + "," + "," + "," + "," + "," + "," + "," + "," + "," + "," + "," + "," + "," + "WHAT IS GOING ON PIT DATA" + floorIntake + "," + sidewaysElevator + "," + intakeType + "," + language + "," + dTrainType + "," + wheelSize + "," + weight + "," + elevatorSpeed + "," + highDTrainSpeed + "," + lowDTrainSpeed + "," + elevatorHeight + "," + habScale + "," + roboPiggybacks + "," + strategy + "," + shooter + "," + sandstormType + "," + notes + "\n";
+        }
     }
 
 }

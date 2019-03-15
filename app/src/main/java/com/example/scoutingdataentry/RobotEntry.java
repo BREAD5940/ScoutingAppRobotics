@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class RobotEntry extends AppCompatActivity {
 
@@ -22,8 +23,13 @@ public class RobotEntry extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 teamNumber = findViewById(R.id.teamNumber);
-                GameData.mTempStorage.setTeamNumber(Integer.parseInt(teamNumber.getText().toString()));
-                startActivity(new Intent(RobotEntry.this, GameData.class));
+                if(Integer.parseInt(teamNumber.getText().toString()) == 0) {
+                    Toast.makeText(RobotEntry.this, "Provide a Team Number", Toast.LENGTH_SHORT).show();
+                } else {
+                    GameData.mTempStorage.setTeamNumber(Integer.parseInt(teamNumber.getText().toString()));
+                    GameData.mTempStorage.setIsGameData(true);
+                    startActivity(new Intent(RobotEntry.this, GameData.class));
+                }
             }
         });
 
@@ -32,8 +38,14 @@ public class RobotEntry extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 teamNumber = findViewById(R.id.teamNumber);
-                PitData.mTempStorage.setTeamNumber(Integer.parseInt(teamNumber.getText().toString()));
-                startActivity(i);
+                if(Integer.parseInt(teamNumber.getText().toString()) == 0) {
+                    Toast.makeText(RobotEntry.this, "Provide a Team Number", Toast.LENGTH_SHORT).show();
+                } else {
+                    PitData.mTempStorage.setTeamNumber(Integer.parseInt(teamNumber.getText().toString()));
+                    PitData.mTempStorage.setIsGameData(false);
+                    //using i to avoid bug
+                    startActivity(i);
+                }
             }
         });
 
