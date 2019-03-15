@@ -27,7 +27,7 @@ public class RobotEntry extends AppCompatActivity {
                     Toast.makeText(RobotEntry.this, "Provide a Team Number", Toast.LENGTH_SHORT).show();
                 } else {
                     GameData.mTempStorage.setTeamNumber(Integer.parseInt(teamNumber.getText().toString()));
-                    GameData.mTempStorage.setIsGameData(true);
+                    Storage.isGameData.setGameDataCheck(true);
                     startActivity(new Intent(RobotEntry.this, GameData.class));
                 }
             }
@@ -42,7 +42,7 @@ public class RobotEntry extends AppCompatActivity {
                     Toast.makeText(RobotEntry.this, "Provide a Team Number", Toast.LENGTH_SHORT).show();
                 } else {
                     PitData.mTempStorage.setTeamNumber(Integer.parseInt(teamNumber.getText().toString()));
-                    PitData.mTempStorage.setIsGameData(false);
+                    Storage.isGameData.setGameDataCheck(false);
                     //using i to avoid bug
                     startActivity(i);
                 }

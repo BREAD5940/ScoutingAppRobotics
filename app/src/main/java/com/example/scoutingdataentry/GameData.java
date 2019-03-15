@@ -1,17 +1,11 @@
 package com.example.scoutingdataentry;
 
-import android.Manifest;
-import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.media.MediaScannerConnection;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.Settings;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -32,8 +26,6 @@ import java.io.OutputStreamWriter;
 import java.util.HashMap;
 
 import static android.os.Environment.DIRECTORY_DOWNLOADS;
-import static java.security.AccessController.getContext;
-import android.provider.Settings.Secure;
 
 
 public class GameData extends AppCompatActivity {
@@ -382,10 +374,8 @@ public class GameData extends AppCompatActivity {
         gamePointsBox = findViewById(R.id.editText);
         if(gamePointsBox.getText().toString() == null || gamePointsBox.getText().toString().equals("null")) {
             Toast.makeText(this, "Provide the End Game Points", Toast.LENGTH_SHORT);
-            System.out.println("THIS IS WHAT THE GAMEPOINTS IS EQUIVALENT TO: " + gamePointsBox.getText().toString());
         } else {
             mTempStorage.setPoints(gamePointsBox.getText().toString());
-            System.out.println("THIS IS WHAT THE GAMEPOINTS IS EQUIVALENT TO: " + gamePointsBox.getText().toString());
             //Grabbing notes
             notesBox = findViewById(R.id.editText2);
             mTempStorage.setNotes(notesBox.getText().toString());

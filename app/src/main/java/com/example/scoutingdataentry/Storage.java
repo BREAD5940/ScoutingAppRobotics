@@ -2,12 +2,10 @@ package com.example.scoutingdataentry;
 
 public class Storage {
 
-    public Storage() {}
-
     int teamNumber = 0;
 
     //Game Data Variables
-    String alliance = "null";
+    String alliance = " ";
     int startLevel = 0;
     int sCargoShip = 0;
     int sCargoRocket = 0;
@@ -27,38 +25,31 @@ public class Storage {
     boolean yellowCard = false;
     boolean redCard = false;
     boolean broke = false;
-    String points = "null";
-    String notes = "null";
+    String points = " ";
+    String notes = " ";
 
     //Pit Data Variables
     boolean floorIntake = false;
     boolean sidewaysElevator = false;
     boolean shooter = false;
-    String intakeType = "null";
-    String language = "null";
+    String intakeType = " ";
+    String language = " ";
     //Drive Train, dTrain, get it? It's cuz it's a shorter way of writing it
-    String dTrainType = "null";
-    String strategy = "null";
-    String sandstormType = "null";
-    String wheelSize = "null";
-    String weight = "null";
-    String elevatorSpeed = "null";
-    String highDTrainSpeed = "null";
-    String lowDTrainSpeed = "null";
+    String dTrainType = " ";
+    String strategy = " ";
+    String sandstormType = " ";
+    String wheelSize = " ";
+    String weight = " ";
+    String elevatorSpeed = " ";
+    String highDTrainSpeed = " ";
+    String lowDTrainSpeed = " ";
     int elevatorHeight = 0;
     int habScale = 0;
     //I want this to be the working title:
     int roboPiggybacks = 0;
 
-    boolean isGameData;
+    public static GameDataChecker isGameData = new GameDataChecker();
 
-    public boolean getIsGameData() {
-        return isGameData;
-    }
-
-    public void setIsGameData(boolean gameData) {
-        isGameData = gameData;
-    }
 
     public boolean getFloorIntake() {
         return floorIntake;
@@ -379,10 +370,11 @@ public class Storage {
 
     @Override
     public String toString() {
-        if (isGameData)
-            return teamNumber + "," + alliance + "," + startLevel + "," + sCargoShip + "," + sCargoRocket + "," + sCargoDrop + "," + sHatchShip + "," + sHatchRocket + "," + sHatchDrop + "," + gCargoShip + "," + gCargoRocket + "," + gCargoDrop + "," + gHatchShip + "," + gHatchRocket + "," + gHatchDrop + "," + endLevel + "," + techFouls + "," + fouls + "," + yellowCard + "," + redCard + "," + broke + "," + points + "," + "WHAT IS GOING ON GAME DATA" + "," + "," + "," + "," + "," + "," + "," + "," + "," + "," + "," + "," + "," + "," + "," + "," + notes + "\n";
-        else{
-            return teamNumber + "," + "," + "," + "," + "," + "," + "," + "," + "," + "," + "," + "," + "," + "," + "," + "," + "," + "," + "," + "," + "," + "," + "WHAT IS GOING ON PIT DATA" + floorIntake + "," + sidewaysElevator + "," + intakeType + "," + language + "," + dTrainType + "," + wheelSize + "," + weight + "," + elevatorSpeed + "," + highDTrainSpeed + "," + lowDTrainSpeed + "," + elevatorHeight + "," + habScale + "," + roboPiggybacks + "," + strategy + "," + shooter + "," + sandstormType + "," + notes + "\n";
+        System.out.println("STATE OF ISGAMEDATA: " + isGameData.isGameDataCheck());
+        if (isGameData.isGameDataCheck()) {
+            return teamNumber + "," + alliance + "," + startLevel + "," + sCargoShip + "," + sCargoRocket + "," + sCargoDrop + "," + sHatchShip + "," + sHatchRocket + "," + sHatchDrop + "," + gCargoShip + "," + gCargoRocket + "," + gCargoDrop + "," + gHatchShip + "," + gHatchRocket + "," + gHatchDrop + "," + endLevel + "," + techFouls + "," + fouls + "," + yellowCard + "," + redCard + "," + broke + "," + points + "," + "," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + notes + "\n";
+        }else{
+            return teamNumber + "," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + floorIntake + "," + sidewaysElevator + "," + intakeType + "," + language + "," + dTrainType + "," + wheelSize + "," + weight + "," + elevatorSpeed + "," + highDTrainSpeed + "," + lowDTrainSpeed + "," + elevatorHeight + "," + habScale + "," + roboPiggybacks + "," + strategy + "," + shooter + "," + sandstormType + "," + notes + "\n";
         }
     }
 
