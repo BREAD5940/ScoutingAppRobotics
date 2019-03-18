@@ -12,9 +12,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PitData"/>
-        <activity android:name=".GameData" />
-        <activity android:name=".RobotEntry">
+        <activity android:name=".PitData"
+            android:theme="@style/redAndBlack" />
+        <activity android:name=".GameData"
+            android:theme="@style/redAndBlack" />
+        <activity android:name=".RobotEntry"
+            android:theme="@style/redAndBlack">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
 

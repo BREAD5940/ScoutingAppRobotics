@@ -30,7 +30,7 @@
                 android:layout_marginBottom="8dp"
                 android:text="Pit Data"
                 android:textAlignment="center"
-                android:textColor="@android:color/black"
+                android:textColor="@android:color/holo_red_dark"
                 android:textSize="50sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -455,6 +455,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Select if shooter" />
+			<CheckBox
+				android:id="@+id/checkbox_encoders"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="Select if has encoders" />
 
 
             <LinearLayout

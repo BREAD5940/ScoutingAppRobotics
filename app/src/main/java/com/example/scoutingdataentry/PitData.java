@@ -132,6 +132,15 @@ public class PitData extends AppCompatActivity {
                                            }
         );
 
+        //Encoders checkbox
+        encoders = findViewById(R.id.checkbox_encoders);
+        encoders.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                mTempStorage.setEncoders(isChecked);
+            }
+        });
+
         //Intake Type RadioGroup
         radioGroup1 = findViewById(R.id.radioGroup1);
         radioGroup1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {

@@ -32,6 +32,7 @@ public class Storage {
     boolean floorIntake = false;
     boolean sidewaysElevator = false;
     boolean shooter = false;
+    boolean encoders = false;
     String intakeType = " ";
     String language = " ";
     //Drive Train, dTrain, get it? It's cuz it's a shorter way of writing it
@@ -74,6 +75,10 @@ public class Storage {
     public void setShooter(boolean shooter) {
         this.shooter = shooter;
     }
+
+    public boolean getEncoders() { return encoders; }
+
+    public void setEncoders(boolean encoders) { this.encoders = encoders; }
 
     public String getIntakeType() {
         return intakeType;
