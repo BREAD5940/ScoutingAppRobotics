@@ -57,6 +57,18 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.721" />
 
+            <CheckBox
+                android:id="@+id/checkbox_floorIntake"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Floor Hatch Panel Intake" />
+
+            <CheckBox
+                android:id="@+id/checkbox_sidewaysElevator"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sideways Elevator" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -102,6 +114,122 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioGroup
+                    android:id="@+id/radioGroup4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/radioButton9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Java"
+                        android:textStyle="bold" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="C"
+                        android:textStyle="bold" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton11"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="C++" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Python" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton13"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="LabView" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Other" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioGroup
+                    android:id="@+id/radioGroup5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/radioButton15"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="West Coast"
+                        android:textStyle="bold" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Swerve"
+                        android:textStyle="bold" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton17"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Mecanum" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton18"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="H-Drive" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton19"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Castor" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton20"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Tank Treads" />
+                </RadioGroup>
+
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -127,6 +255,29 @@
                     android:inputType="number" />
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Weight(lbs)"
+                    android:textAlignment="textEnd"
+                    android:textStyle="bold"
+                    tools:textSize="20dp" />
+
+                <EditText
+                    android:id="@+id/editText5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="number" />
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -135,11 +286,53 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/textView11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Elevator Speed(seconds)"
+                    android:textAlignment="textEnd"
+                    android:textStyle="bold"
+                    tools:textSize="20dp" />
+
+                <EditText
+                    android:id="@+id/editText6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="number" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="High Drive Train Speed"
+                    android:textAlignment="textEnd"
+                    android:textStyle="bold"
+                    tools:textSize="20dp" />
+
+                <EditText
+                    android:id="@+id/editText4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="number" />
+
+                <TextView
                     android:id="@+id/textView3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Drive Train Speed"
+                    android:text="Low Drive Train Speed"
                     android:textAlignment="textEnd"
                     android:textStyle="bold"
                     tools:textSize="20dp" />
@@ -150,6 +343,78 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="number" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="37dp"
+                    android:layout_weight="1"
+                    android:text="Elevator Height(level)"
+                    android:textAlignment="textEnd"
+                    android:textStyle="bold"
+                    tools:textSize="20dp" />
+
+                <Spinner
+                    android:id="@+id/spinner3"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:background="@android:drawable/btn_dropdown"
+                    android:spinnerMode="dropdown" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="37dp"
+                    android:layout_weight="1"
+                    android:text="Hab Scale (level)"
+                    android:textAlignment="textEnd"
+                    android:textStyle="bold"
+                    tools:textSize="20dp" />
+
+                <Spinner
+                    android:id="@+id/spinner4"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:background="@android:drawable/btn_dropdown"
+                    android:spinnerMode="dropdown" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="37dp"
+                    android:layout_weight="1"
+                    android:text="Robot Piggybacks(# of robots)"
+                    android:textAlignment="textEnd"
+                    android:textStyle="bold"
+                    tools:textSize="20dp" />
+
+                <Spinner
+                    android:id="@+id/spinner5"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:background="@android:drawable/btn_dropdown"
+                    android:spinnerMode="dropdown" />
+
             </LinearLayout>
 
             <LinearLayout
@@ -186,7 +451,7 @@
 
 
             <CheckBox
-                android:id="@+id/checkbox_broke"
+                android:id="@+id/checkbox_shooter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Select if shooter" />
@@ -224,23 +489,13 @@
 
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="wrap_content"
-                android:layout_height="37dp"
-                android:layout_weight="1"
-                android:text="Notes"
-                android:textAlignment="textEnd"
-                android:textStyle="bold"
-                tools:textSize="20dp" />
-
             <EditText
                 android:id="@+id/editText3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="Notes" />
+                android:hint="Notes" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -248,7 +503,7 @@
                 android:layout_margin="16dp"
                 android:gravity="center_horizontal"
                 android:orientation="horizontal"
-                tools:context=".GameData">
+                tools:context=".PitData">
 
                 <Button
                     android:id="@+id/saveData"

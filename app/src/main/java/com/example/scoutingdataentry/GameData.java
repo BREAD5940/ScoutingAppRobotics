@@ -1,15 +1,11 @@
 package com.example.scoutingdataentry;
 
-import android.Manifest;
-import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.media.MediaScannerConnection;
 import android.os.Bundle;
 import android.os.Environment;
-import android.support.v4.content.ContextCompat;
+import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -25,6 +21,7 @@ import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.HashMap;
 
@@ -32,8 +29,6 @@ import static android.os.Environment.DIRECTORY_DOWNLOADS;
 
 
 public class GameData extends AppCompatActivity {
-
-    private static final String LOG_TAG = GameData.class.getName();
 
     int minteger1 = 0;
     int minteger2 = 0;
@@ -52,7 +47,7 @@ public class GameData extends AppCompatActivity {
     int mintegerType;
     TextView displayInteger;
     EditText gamePointsBox;
-    EditText notes;
+    EditText notesBox;
     RadioGroup radioGroup1;
     RadioButton selectedRadioButton;
     CheckBox yellowCard;
@@ -77,7 +72,6 @@ public class GameData extends AppCompatActivity {
                 new AdapterView.OnItemSelectedListener() {
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                         mTempStorage.setStartLevel(Integer.parseInt(parent.getSelectedItem().toString()));
-                        System.out.println("value added to startlevel: " + mTempStorage.getStartLevel());
                     }
 
                     public void onNothingSelected(AdapterView<?> parent) {
@@ -94,7 +88,6 @@ public class GameData extends AppCompatActivity {
                 new AdapterView.OnItemSelectedListener() {
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                         mTempStorage.setEndLevel(Integer.parseInt(parent.getSelectedItem().toString()));
-                        System.out.println("value added to endlevel: " + mTempStorage.getEndLevel());
                     }
 
                     public void onNothingSelected(AdapterView<?> parent) {
@@ -424,10 +417,10 @@ public class GameData extends AppCompatActivity {
             writeCSV(toPrint.toString(), filename, GameData.this);
         }
 
-        startActivity(new Intent(GameData.this, RobotEntry.class));
     }
 
-    public void writeCSV(String dataToSave, String filename, Context cntxt) {
+    public void writeCSV(String dataToSave, String filename) {
+
         File file = new File(Environment.getExternalStoragePublicDirectory(DIRECTORY_DOWNLOADS), filename);
         FileOutputStream fOut;
         OutputStreamWriter osw;
@@ -442,8 +435,7 @@ public class GameData extends AppCompatActivity {
                     osw.close();
                     Toast.makeText(this, "CSV in downloads folder on phone", Toast.LENGTH_LONG).show();
                     MediaScannerConnection.scanFile(this, new String[] {file.toString()}, null, null);
-                    System.out.println("Should have printed");
-                } catch (java.io.IOException e) {
+                } catch (IOException e) {
                     e.printStackTrace();
                     Toast.makeText(this, "Failed to save CSV", Toast.LENGTH_LONG).show();
                 }
@@ -451,7 +443,7 @@ public class GameData extends AppCompatActivity {
                 System.out.println("External Storage is NOT Writable to");
             }
 
-        //Works for writing new file, if previously nonexistent
+        //Works for writing new file, if file is previously nonexistent
         } else {
             System.out.println("Gamedata.csv does not exist");
             if (isWritable()) {
@@ -463,7 +455,7 @@ public class GameData extends AppCompatActivity {
                     osw.close();
                     Toast.makeText(this, "CSV in downloads folder on phone", Toast.LENGTH_LONG).show();
                     MediaScannerConnection.scanFile(this, new String[] {file.toString()}, null, null);
-                } catch (java.io.IOException e) {
+                } catch (IOException e) {
                     e.printStackTrace();
                     Toast.makeText(this, "Failed to save CSV", Toast.LENGTH_LONG).show();
                 }
