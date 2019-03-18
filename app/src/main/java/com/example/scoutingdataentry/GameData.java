@@ -47,7 +47,7 @@ public class GameData extends AppCompatActivity {
     int mintegerType;
     TextView displayInteger;
     EditText gamePointsBox;
-    EditText notesBox;
+    EditText notes;
     RadioGroup radioGroup1;
     RadioButton selectedRadioButton;
     CheckBox yellowCard;
@@ -414,7 +414,7 @@ public class GameData extends AppCompatActivity {
             toPrint.setBroke(data.get(key).getBroke());
             toPrint.setPoints(data.get(key).getPoints());
             toPrint.setNotes(data.get(key).getNotes());
-            writeCSV(toPrint.toString(), filename, GameData.this);
+            writeCSV(toPrint.toString(), filename);
         }
 
     }

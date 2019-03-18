@@ -38,6 +38,7 @@ public class PitData extends AppCompatActivity {
     CheckBox floorIntake;
     CheckBox sidewaysElevator;
     CheckBox shooter;
+    CheckBox encoders;
     EditText wheelSizeBox;
     EditText weightBox;
     EditText elevatorSpeedBox;
