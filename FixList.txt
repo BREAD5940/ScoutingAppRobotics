@@ -1,0 +1,33 @@
+Scouting app changes:
+
+UI:
+	- option of 'didn't get off the hab'
+	- option for 'didn't get back on the hab'
+	- option for splines/no splines
+	- option for vision system
+	- option for starting piece
+	- match number
+	- match type (practice, quals, etc.)
+	- floor intake in match
+	- option for 'it kinda stopped for a while but then it was fine'
+	- option for elevator levels in match
+	- maybe a subjective 'rating'
+	- maybe information pannels (ex. click on 'i' and it tells you what a tech foul is/what it looks like)
+	- typo checking (ex. team number doesn't exist)
+
+BACKEND:
+	-  n a m i n g
+	- some sort of table joining to better store data
+		- ex a unified table for each team, sorted into mech/design data and indiv match data
+			- we'd need match num input for this
+			- maybe mech/design should overwrite?
+				- how would that impact notes?
+			- maybe do all this on the main filesystem?
+		- this might already be kinda a thing, I haven't looked at the raw csvs
+	- tba tie-in
+	- nfc for better file transfer
+	
+DONE:
+	- option for encoders
+	- no more placing negative pieces
+	- notes box bigger
