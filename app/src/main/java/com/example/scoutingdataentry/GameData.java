@@ -218,72 +218,100 @@ public class GameData extends AppCompatActivity {
         mintegerType = Integer.parseInt(view.getTag().toString());
         switch (mintegerType) {
             case 1:
-                minteger1 = minteger1 - 1;
+                if(minteger1 >= 1) {
+                    minteger1 = minteger1 - 1;
+                }
                 mTempStorage.setsCargoShip(minteger1);
                 display(minteger1, mintegerType);
                 break;
             case 2:
-                minteger2 = minteger2 - 1;
+                if(minteger2 >= 1) {
+                    minteger2 = minteger2 - 1;
+                }
                 mTempStorage.setsCargoRocket(minteger2);
                 display(minteger2, mintegerType);
                 break;
             case 3:
-                minteger3 = minteger3 - 1;
+                if(minteger3 >= 1) {
+                    minteger3 = minteger3 - 1;
+                }
                 mTempStorage.setsCargoDrop(minteger3);
                 display(minteger3, mintegerType);
                 break;
             case 4:
-                minteger4 = minteger4 - 1;
+                if(minteger4 >=1) {
+                    minteger4 = minteger4 - 1;
+                }
                 mTempStorage.setsHatchShip(minteger4);
                 display(minteger4, mintegerType);
                 break;
             case 5:
-                minteger5 = minteger5 - 1;
+                if(minteger5 >= 1) {
+                    minteger5 = minteger5 - 1;
+                }
                 mTempStorage.setsHatchRocket(minteger5);
                 display(minteger5, mintegerType);
                 break;
             case 6:
-                minteger6 = minteger6 - 1;
+                if(minteger6 >= 1) {
+                    minteger6 = minteger6 - 1;
+                }
                 mTempStorage.setsHatchDrop(minteger6);
                 display(minteger6, mintegerType);
                 break;
             case 7:
-                minteger7 = minteger7 - 1;
+                if(minteger7 >= 1) {
+                    minteger7 = minteger7 - 1;
+                }
                 mTempStorage.setgCargoShip(minteger7);
                 display(minteger7, mintegerType);
                 break;
             case 8:
-                minteger8 = minteger8 - 1;
+                if(minteger8 >= 1) {
+                    minteger8 = minteger8 - 1;
+                }
                 mTempStorage.setgCargoRocket(minteger8);
                 display(minteger8, mintegerType);
                 break;
             case 9:
-                minteger9 = minteger9 - 1;
+                if(minteger9 >=1 ) {
+                    minteger9 = minteger9 - 1;
+                }
                 mTempStorage.setgCargoDrop(minteger9);
                 display(minteger9, mintegerType);
                 break;
             case 10:
-                minteger10 = minteger10 - 1;
+                if(minteger10 >=1) {
+                    minteger10 = minteger10 - 1;
+                }
                 mTempStorage.setgHatchShip(minteger10);
                 display(minteger10, mintegerType);
                 break;
             case 11:
-                minteger11 = minteger11 - 1;
+                if(minteger11 >=1) {
+                    minteger11 = minteger11 - 1;
+                }
                 mTempStorage.setgHatchRocket(minteger11);
                 display(minteger11, mintegerType);
                 break;
             case 12:
-                minteger12 = minteger12 - 1;
+                if(minteger12 >=1) {
+                    minteger12 = minteger12 - 1;
+                }
                 mTempStorage.setgHatchDrop(minteger12);
                 display(minteger12, mintegerType);
                 break;
             case 13:
-                minteger13 = minteger13 - 1;
+                if(minteger13 >=1) {
+                    minteger13 = minteger13 - 1;
+                }
                 mTempStorage.setTechFouls(minteger13);
                 display(minteger13, mintegerType);
                 break;
             case 14:
-                minteger14 = minteger14 - 1;
+                if(minteger14 >=1) {
+                    minteger14 = minteger14 - 1;
+                }
                 mTempStorage.setFouls(minteger14);
                 display(minteger14, mintegerType);
                 break;
