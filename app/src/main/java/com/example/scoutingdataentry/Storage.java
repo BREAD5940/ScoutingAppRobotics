@@ -25,7 +25,7 @@ public class Storage {
     boolean yellowCard = false;
     boolean redCard = false;
     boolean broke = false;
-    int points = 0;
+    String points = "null";
     String notes = "null";
 
     public int getTeamNumber() {
@@ -140,11 +140,11 @@ public class Storage {
         this.broke = broke;
     }
 
-    public int getPoints() {
+    public String getPoints() {
         return points;
     }
 
-    public void setPoints(int points) {
+    public void setPoints(String points) {
         this.points = points;
     }
 

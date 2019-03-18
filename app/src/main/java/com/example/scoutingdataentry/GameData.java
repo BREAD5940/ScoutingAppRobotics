@@ -51,7 +51,7 @@ public class GameData extends AppCompatActivity {
     int minteger14 = 0;
     int mintegerType;
     TextView displayInteger;
-    EditText gamePoints;
+    EditText gamePointsBox;
     EditText notes;
     RadioGroup radioGroup1;
     RadioButton selectedRadioButton;
@@ -376,10 +376,15 @@ public class GameData extends AppCompatActivity {
     }
 
     public void saveData(View view) {
-
         //Grabbing points
-        gamePoints = findViewById(R.id.editText);
-        mTempStorage.setPoints(Integer.parseInt(gamePoints.getText().toString()));
+        gamePointsBox = findViewById(R.id.editText);
+        mTempStorage.setPoints(gamePointsBox.getText().toString());
+
+        if (gamePointsBox.getText().toString().matches("")) {
+            Toast.makeText(this, "You must enter a number", Toast.LENGTH_SHORT).show();
+            return;
+        } //keeps game points as a String, checks if anything is entered or not
+
 
         //Grabbing notes
         notes = findViewById(R.id.editText2);

@@ -36,6 +36,7 @@ public class RobotEntry extends AppCompatActivity {
                 teamNumber = findViewById(R.id.teamNumber);
                 GameData.mTempStorage.setTeamNumber(Integer.parseInt(teamNumber.getText().toString()));
 
+
                 startActivity(new Intent(RobotEntry.this, PitData.class));
             }
         });
