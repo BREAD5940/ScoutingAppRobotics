@@ -30,7 +30,6 @@ public class RobotEntry extends AppCompatActivity {
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                             GameData.mTempStorage.setTeamNumber((parent.getSelectedItem().toString()));
                             Storage.isGameData.setGameDataCheck(true);
-                            startActivity(new Intent(RobotEntry.this, GameData.class));
                     }
 
                     public void onNothingSelected(AdapterView<?> parent) {
