@@ -2,7 +2,7 @@ package com.example.scoutingdataentry;
 
 public class Storage {
 
-    int teamNumber = 0;
+    String teamNumber = " ";
 
     //Game Data Variables
     String alliance = " ";
@@ -186,11 +186,11 @@ public class Storage {
 
 
 
-    public int getTeamNumber() {
+    public String getTeamNumber() {
         return teamNumber;
     }
 
-    public void setTeamNumber(int teamNumber) {
+    public void setTeamNumber(String teamNumber) {
         this.teamNumber = teamNumber;
     }
 

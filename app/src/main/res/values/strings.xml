@@ -1,8 +1,85 @@
 <resources>
-    <string name="app_name">scoutingdataentry</string>
-    <string-array name = "Hab_Level">
+    <string name = "app_name">scoutingdataentry</string>
+    <string-array name = "End_Hab_Level">
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string-array name = "Start_Hab_Level">
+        <item>Did not Hab</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
+    </string-array>
+    <string-array name = "Rocket_Level">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+    <string-array name = "Scale_Level">
+        <item>Cannot scale</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+    <string-array name = "SAC_Teams">
+        <item>Team 100</item>
+        <item>Team 1056</item>
+        <item>Team 1072</item>
+        <item>Team 1323</item>
+        <item>Team 1458</item>
+        <item>Team 1678</item>
+        <item>Team 199</item>
+        <item>Team 2085</item>
+        <item>Team 2141</item>
+        <item>Team 2204</item>
+        <item>Team 2367</item>
+        <item>Team 2551</item>
+        <item>Team 2839</item>
+        <item>Team 3013</item>
+        <item>Team 3189</item>
+        <item>Team 3250</item>
+        <item>Team 3257</item>
+        <item>Team 3482</item>
+        <item>Team 3598</item>
+        <item>Team 3615</item>
+        <item>Team 3669</item>
+        <item>Team 3859</item>
+        <item>Team 3880</item>
+        <item>Team 4135</item>
+        <item>Team 4643</item>
+        <item>Team 4698</item>
+        <item>Team 4904</item>
+        <item>Team 5250</item>
+        <item>Team 5274</item>
+        <item>Team 5419</item>
+        <item>Team 5430</item>
+        <item>Team 5458</item>
+        <item>Team 5480</item>
+        <item>Team 5496</item>
+        <item>Team 5507</item>
+        <item>Team 5871</item>
+        <item>Team 5875</item>
+        <item>Team 5940</item>
+        <item>Team 6174</item>
+        <item>Team 6238</item>
+        <item>Team 6305</item>
+        <item>Team 6358</item>
+        <item>Team 6474</item>
+        <item>Team 6612</item>
+        <item>Team 6619</item>
+        <item>Team 6644</item>
+        <item>Team 6657</item>
+        <item>Team 6662</item>
+        <item>Team 6883</item>
+        <item>Team 6918</item>
+        <item>Team 6926</item>
+        <item>Team 6981</item>
+        <item>Team 701</item>
+        <item>Team 7137</item>
+        <item>Team 7229</item>
+        <item>Team 7529</item>
+        <item>Team 7663</item>
+        <item>Team 7802</item>
+        <item>Team 7870</item>
+        <item>Team 973</item>
     </string-array>
 </resources>

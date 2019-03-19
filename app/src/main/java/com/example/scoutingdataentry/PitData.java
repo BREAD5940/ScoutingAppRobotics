@@ -56,7 +56,7 @@ public class PitData extends AppCompatActivity {
 
         //Elevator height spinner
         Spinner spinner3 = findViewById(R.id.spinner3);
-        ArrayAdapter<CharSequence> adapter3 = ArrayAdapter.createFromResource(this, R.array.Hab_Level, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter3 = ArrayAdapter.createFromResource(this, R.array.Rocket_Level, android.R.layout.simple_spinner_item);
         adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner3.setAdapter(adapter3);
         spinner3.setOnItemSelectedListener(
@@ -72,7 +72,7 @@ public class PitData extends AppCompatActivity {
 
         //Hab Scaling
         Spinner spinner4 = findViewById(R.id.spinner4);
-        ArrayAdapter<CharSequence> adapter4 = ArrayAdapter.createFromResource(this, R.array.Hab_Level, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter4 = ArrayAdapter.createFromResource(this, R.array.Scale_Level, android.R.layout.simple_spinner_item);
         adapter4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner4.setAdapter(adapter4);
         spinner4.setOnItemSelectedListener(
@@ -86,9 +86,9 @@ public class PitData extends AppCompatActivity {
                     }
                 });
 
-        //Elevator height spinner
+        //Robopiggy Backs
         Spinner spinner5 = findViewById(R.id.spinner5);
-        ArrayAdapter<CharSequence> adapter5 = ArrayAdapter.createFromResource(this, R.array.Hab_Level, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter5 = ArrayAdapter.createFromResource(this, R.array.End_Hab_Level, android.R.layout.simple_spinner_item);
         adapter5.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner5.setAdapter(adapter5);
         spinner5.setOnItemSelectedListener(
@@ -216,37 +216,13 @@ public class PitData extends AppCompatActivity {
         notesBox = findViewById(R.id.editText3);
         mTempStorage.setNotes(notesBox.getText().toString());
 
-        //dataLogging
-        dataLogger.addData(mTempStorage.getTeamNumber(), mTempStorage);
-        HashMap<Integer, Storage> data = dataLogger.getData();
-
         //Grabbing Android Device ID
         String android_id = Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
 
         String filename = android_id + "_pitdata.csv";
 
-        //Run through all the keys (teams), setting toPrint to all the values, and then printing it all out
-        for (int key : data.keySet()) {
-            toPrint.setTeamNumber(data.get(key).getTeamNumber());
-            toPrint.setFloorIntake(data.get(key).getFloorIntake());
-            toPrint.setSidewaysElevator(data.get(key).getSidewaysElevator());
-            toPrint.setIntakeType(data.get(key).getIntakeType());
-            toPrint.setLanguage(data.get(key).getLanguage());
-            toPrint.setdTrainType(data.get(key).getdTrainType());
-            toPrint.setWheelSize(data.get(key).getWheelSize());
-            toPrint.setWeight(data.get(key).getWeight());
-            toPrint.setElevatorSpeed(data.get(key).getElevatorSpeed());
-            toPrint.setHighDTrainSpeed(data.get(key).getHighDTrainSpeed());
-            toPrint.setLowDTrainSpeed(data.get(key).getLowDTrainSpeed());
-            toPrint.setElevatorHeight(data.get(key).getElevatorHeight());
-            toPrint.setHabScale(data.get(key).getHabScale());
-            toPrint.setRoboPiggybacks(data.get(key).getRoboPiggybacks());
-            toPrint.setStrategy(data.get(key).getStrategy());
-            toPrint.setShooter(data.get(key).getShooter());
-            toPrint.setSandstormType(data.get(key).getSandstormType());
-            toPrint.setNotes(data.get(key).getNotes());
-            writeCSV(toPrint.toString(), filename);
-        }
+        writeCSV(toPrint.toString(), filename);
+
         startActivity(new Intent(PitData.this, RobotEntry.class));
     }
 

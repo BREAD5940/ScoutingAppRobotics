@@ -4,8 +4,11 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 public class RobotEntry extends AppCompatActivity {
@@ -18,18 +21,29 @@ public class RobotEntry extends AppCompatActivity {
         setContentView(R.layout.activity_robot_entry);
         final Intent i = new Intent(RobotEntry.this, PitData.class);
 
+        Spinner spinner6 = findViewById(R.id.spinner6);
+        ArrayAdapter<CharSequence> adapter6 = ArrayAdapter.createFromResource(this, R.array.SAC_Teams, android.R.layout.simple_spinner_item);
+        adapter6.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner6.setAdapter(adapter6);
+        spinner6.setOnItemSelectedListener(
+                new AdapterView.OnItemSelectedListener() {
+                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            GameData.mTempStorage.setTeamNumber((parent.getSelectedItem().toString()));
+                            Storage.isGameData.setGameDataCheck(true);
+                            startActivity(new Intent(RobotEntry.this, GameData.class));
+                    }
+
+                    public void onNothingSelected(AdapterView<?> parent) {
+
+                    }
+                });
+
+
         Button btn = findViewById(R.id.button3);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                teamNumber = findViewById(R.id.teamNumber);
-                if(Integer.parseInt(teamNumber.getText().toString()) == 0) {
-                    Toast.makeText(RobotEntry.this, "Provide a Team Number", Toast.LENGTH_SHORT).show();
-                } else {
-                    GameData.mTempStorage.setTeamNumber(Integer.parseInt(teamNumber.getText().toString()));
-                    Storage.isGameData.setGameDataCheck(true);
-                    startActivity(new Intent(RobotEntry.this, GameData.class));
-                }
+                startActivity(new Intent(RobotEntry.this, PitData.class));
             }
         });
 
@@ -37,18 +51,9 @@ public class RobotEntry extends AppCompatActivity {
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                teamNumber = findViewById(R.id.teamNumber);
-                if(Integer.parseInt(teamNumber.getText().toString()) == 0) {
-                    Toast.makeText(RobotEntry.this, "Provide a Team Number", Toast.LENGTH_SHORT).show();
-                } else {
-                    PitData.mTempStorage.setTeamNumber(Integer.parseInt(teamNumber.getText().toString()));
-                    Storage.isGameData.setGameDataCheck(false);
-                    //using i to avoid bug
-                    startActivity(i);
-                }
+                startActivity(new Intent(RobotEntry.this, PitData.class));
             }
         });
-        //Testing saving to new branch
 
     }
 }
