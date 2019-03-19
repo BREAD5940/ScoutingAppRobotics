@@ -38,19 +38,19 @@ public class RobotEntry extends AppCompatActivity {
                 });
 
 
-        Button btn = findViewById(R.id.button3);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(RobotEntry.this, PitData.class));
-            }
-        });
+//        Button btn = findViewById(R.id.button3);
+//        btn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(RobotEntry.this, PitData.class));
+//            }
+//        });
 
         Button btn1 = findViewById(R.id.button2);
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(RobotEntry.this, PitData.class));
+                startActivity(new Intent(RobotEntry.this, GameData.class));
             }
         });
 

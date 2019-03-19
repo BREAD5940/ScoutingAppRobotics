@@ -1,5 +1,7 @@
 package com.example.scoutingdataentry;
 
+import java.util.HashMap;
+
 public class Storage {
 
     String teamNumber = " ";
@@ -7,6 +9,7 @@ public class Storage {
     //Game Data Variables
     String alliance = " ";
     int startLevel = 0;
+//    HashMap<String, Integer> =
     int sCargoShip = 0;
     int sCargoRocket = 0;
     int sCargoDrop = 0;
