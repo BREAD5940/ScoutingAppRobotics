@@ -48,6 +48,9 @@ public class GameData extends AppCompatActivity {
     TextView displayInteger;
     EditText gamePointsBox;
     EditText notes;
+    EditText matchNum;
+    RadioGroup radioGroup2;
+    RadioButton selectedRadioButton2;
     RadioGroup radioGroup1;
     RadioButton selectedRadioButton;
     CheckBox yellowCard;
@@ -65,7 +68,7 @@ public class GameData extends AppCompatActivity {
 
         //Start Level Spinner
         Spinner spinner1 = findViewById(R.id.spinner1);
-        ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this, R.array.Hab_Level, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this, R.array.Start_Hab_Level, android.R.layout.simple_spinner_item);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner1.setAdapter(adapter1);
         spinner1.setOnItemSelectedListener(
@@ -81,7 +84,7 @@ public class GameData extends AppCompatActivity {
 
         //End Level Spinner
         Spinner spinner2 = findViewById(R.id.spinner2);
-        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this, R.array.Hab_Level, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this, R.array.End_Hab_Level, android.R.layout.simple_spinner_item);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner2.setAdapter(adapter2);
         spinner2.setOnItemSelectedListener(
@@ -101,6 +104,15 @@ public class GameData extends AppCompatActivity {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 selectedRadioButton = findViewById(checkedId);
                 mTempStorage.setAlliance(selectedRadioButton.getText().toString());
+            }
+        });
+
+        radioGroup2 = findViewById(R.id.radioGroup2);
+        radioGroup2.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                selectedRadioButton = findViewById(checkedId);
+                mTempStorage.setMatchType(selectedRadioButton.getText().toString());
             }
         });
 
@@ -400,6 +412,7 @@ public class GameData extends AppCompatActivity {
         //Grabbing points
         gamePointsBox = findViewById(R.id.editText);
         mTempStorage.setPoints(gamePointsBox.getText().toString());
+        mTempStorage.setMatchNum(Integer.valueOf(matchNum.getText().toString()));
 
         if (gamePointsBox.getText().toString().matches("")) {
             Toast.makeText(this, "You must enter a number", Toast.LENGTH_SHORT).show();
@@ -411,39 +424,10 @@ public class GameData extends AppCompatActivity {
         notes = findViewById(R.id.editText2);
         mTempStorage.setNotes(notes.getText().toString());
 
-        //dataLogging
-        dataLogger.addData(mTempStorage.getTeamNumber(), mTempStorage);
-        HashMap<Integer, Storage> data = dataLogger.getData();
 
         String filename = "gamedata.csv";
 
-        //Run through all the keys (teams), setting toPrint to all the values, and then printing it all out
-        for (int key : data.keySet()) {
-            toPrint.setTeamNumber(data.get(key).getTeamNumber());
-            toPrint.setAlliance(data.get(key).getAlliance());
-            toPrint.setStartLevel(data.get(key).getStartLevel());
-            toPrint.setsCargoShip(data.get(key).getsCargoShip());
-            toPrint.setsCargoRocket(data.get(key).getsCargoRocket());
-            toPrint.setsCargoDrop(data.get(key).getsCargoDrop());
-            toPrint.setsHatchShip(data.get(key).getsHatchShip());
-            toPrint.setsHatchRocket(data.get(key).getsHatchRocket());
-            toPrint.setsHatchDrop(data.get(key).getsHatchDrop());
-            toPrint.setgCargoShip(data.get(key).getgCargoShip());
-            toPrint.setgCargoRocket(data.get(key).getgCargoRocket());
-            toPrint.setgCargoDrop(data.get(key).getgCargoDrop());
-            toPrint.setgHatchShip(data.get(key).getgHatchShip());
-            toPrint.setgHatchRocket(data.get(key).getgHatchRocket());
-            toPrint.setgHatchDrop(data.get(key).getgHatchDrop());
-            toPrint.setEndLevel(data.get(key).getEndLevel());
-            toPrint.setTechFouls(data.get(key).getTechFouls());
-            toPrint.setFouls(data.get(key).getFouls());
-            toPrint.setYellowCard(data.get(key).getYellowCard());
-            toPrint.setRedCard(data.get(key).getRedCard());
-            toPrint.setBroke(data.get(key).getBroke());
-            toPrint.setPoints(data.get(key).getPoints());
-            toPrint.setNotes(data.get(key).getNotes());
-            writeCSV(toPrint.toString(), filename);
-        }
+        writeCSV(mTempStorage.toString(), filename);
 
     }
 

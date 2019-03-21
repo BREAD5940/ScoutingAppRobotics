@@ -1,7 +1,6 @@
 Scouting app changes:
 
 UI:
-	- option of 'didn't get off the hab'
 	- option for 'didn't get back on the hab'
 	- option for splines/no splines
 	- option for vision system
@@ -13,7 +12,6 @@ UI:
 	- option for elevator levels in match
 	- maybe a subjective 'rating'
 	- maybe information pannels (ex. click on 'i' and it tells you what a tech foul is/what it looks like)
-	- typo checking (ex. team number doesn't exist)
 
 BACKEND:
 	-  n a m i n g
@@ -31,3 +29,7 @@ DONE:
 	- option for encoders
 	- no more placing negative pieces
 	- notes box bigger
+	- option of 'didn't get off the hab'
+	- typo checking (ex. team number doesn't exist)
+
+

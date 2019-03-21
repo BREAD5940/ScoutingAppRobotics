@@ -1,12 +1,17 @@
 package com.example.scoutingdataentry;
 
+import java.util.HashMap;
+
 public class Storage {
 
-    int teamNumber = 0;
+    String teamNumber = " ";
 
     //Game Data Variables
     String alliance = " ";
+    String matchType = " ";
+    int matchNum = 0;
     int startLevel = 0;
+//    HashMap<String, Integer> =
     int sCargoShip = 0;
     int sCargoRocket = 0;
     int sCargoDrop = 0;
@@ -186,11 +191,11 @@ public class Storage {
 
 
 
-    public int getTeamNumber() {
+    public String getTeamNumber() {
         return teamNumber;
     }
 
-    public void setTeamNumber(int teamNumber) {
+    public void setTeamNumber(String teamNumber) {
         this.teamNumber = teamNumber;
     }
 
@@ -203,6 +208,14 @@ public class Storage {
     public void setAlliance(String alliance) {
         this.alliance = alliance;
     }
+
+    public String getMatchType() { return matchType; }
+
+    public void setMatchType(String matchType) { this.matchType = matchType; }
+
+    public int getMatchNum() { return matchNum; }
+
+    public void setMatchNum(int matchNum) { this.matchNum = matchNum; }
 
     public int getgCargoShip() {
         return gCargoShip;

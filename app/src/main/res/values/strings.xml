@@ -1,8 +1,84 @@
 <resources>
-    <string name="app_name">scoutingdataentry</string>
-    <string-array name = "Hab_Level">
+    <string name = "app_name">scoutingdataentry</string>
+    <string-array name = "End_Hab_Level">
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string-array name = "Start_Hab_Level">
+        <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
+    </string-array>
+    <string-array name = "Rocket_Level">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+    <string-array name = "Scale_Level">
+        <item>0</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+    <string-array name = "SAC_Teams">
+        <item>100</item>
+		<item>199</item>
+        <item>701</item>
+		<item>973</item>
+		<item>1056</item>
+        <item>1072</item>
+        <item>1323</item>
+        <item>1458</item>
+        <item>1678</item>
+        <item>2085</item>
+        <item>2141</item>
+        <item>2204</item>
+        <item>2367</item>
+        <item>2551</item>
+        <item>2839</item>
+        <item>3013</item>
+        <item>3189</item>
+        <item>3250</item>
+        <item>3257</item>
+        <item>3482</item>
+        <item>3598</item>
+        <item>3615</item>
+        <item>3669</item>
+        <item>3859</item>
+        <item>3880</item>
+        <item>4135</item>
+        <item>4643</item>
+        <item>4698</item>
+        <item>4904</item>
+        <item>5250</item>
+        <item>5274</item>
+        <item>5419</item>
+        <item>5430</item>
+        <item>5458</item>
+        <item>5480</item>
+        <item>5496</item>
+        <item>5507</item>
+        <item>5871</item>
+        <item>5875</item>
+        <item>6174</item>
+        <item>6238</item>
+        <item>6305</item>
+        <item>6358</item>
+        <item>6474</item>
+        <item>6612</item>
+        <item>6619</item>
+        <item>6644</item>
+        <item>6657</item>
+        <item>6662</item>
+        <item>6883</item>
+        <item>6918</item>
+        <item>6926</item>
+        <item>6981</item>
+        <item>7137</item>
+        <item>7229</item>
+        <item>7529</item>
+        <item>7663</item>
+        <item>7802</item>
+        <item>7870</item>
     </string-array>
 </resources>
