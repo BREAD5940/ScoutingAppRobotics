@@ -55,18 +55,68 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.721" />
-
-            <TextView
-                android:id="@+id/textView2"
+				
+			<TextView
+                android:id="@+id/textView25"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Sandstorm"
+                android:text="Match Information"
                 android:textAlignment="center"
-                android:textSize="40sp"
+                android:textSize="30sp"
                 android:textStyle="bold"
-                tools:textSize="40sp" />
+                tools:textSize="30dp" />
+				
+			<LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-            <LinearLayout
+                <RadioGroup
+                    android:id="@+id/radioGroup2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/radioButton1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Practice Match"
+                        android:textColor="@android:color/holo_red_dark"
+                        android:textStyle="bold" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Qualifier"
+                        android:textColor="@android:color/holo_red_dark"
+                        android:textStyle="bold" />
+						
+					<RadioButton
+                        android:id="@+id/radioButton3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Quarters/Semifinals/Finals"
+                        android:textColor="@android:color/holo_red_dark"
+                        android:textStyle="bold" />
+                </RadioGroup>
+
+            </LinearLayout>
+			
+			<EditText
+                android:id="@+id/editText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number"
+                android:hint="Match Number" />
+			
+			<LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -83,22 +133,67 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Blue Alliance"
+                        android:text="Blue 1"
                         android:textColor="@android:color/holo_blue_dark"
                         android:textStyle="bold" />
-
-                    <RadioButton
+					<RadioButton
                         android:id="@+id/radioButton2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Red Alliance"
+                        android:text="Blue 2"
+                        android:textColor="@android:color/holo_blue_dark"
+                        android:textStyle="bold" />
+					<RadioButton
+                        android:id="@+id/radioButton3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Blue 3"
+                        android:textColor="@android:color/holo_blue_dark"
+                        android:textStyle="bold" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Red 1"
+                        android:textColor="@android:color/holo_red_dark"
+                        android:textStyle="bold" />
+					<RadioButton
+                        android:id="@+id/radioButton5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Red 2"
+                        android:textColor="@android:color/holo_red_dark"
+                        android:textStyle="bold" />
+					<RadioButton
+                        android:id="@+id/radioButton6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Red 3"
                         android:textColor="@android:color/holo_red_dark"
                         android:textStyle="bold" />
                 </RadioGroup>
 
             </LinearLayout>
 
+
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sandstorm"
+                android:textAlignment="center"
+                android:textSize="40sp"
+                android:textStyle="bold"
+                tools:textSize="40sp" />
+
+            
 
             <LinearLayout
                 android:layout_width="match_parent"

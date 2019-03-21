@@ -48,6 +48,9 @@ public class GameData extends AppCompatActivity {
     TextView displayInteger;
     EditText gamePointsBox;
     EditText notes;
+    EditText matchNum;
+    RadioGroup radioGroup2;
+    RadioButton selectedRadioButton2;
     RadioGroup radioGroup1;
     RadioButton selectedRadioButton;
     CheckBox yellowCard;
@@ -101,6 +104,15 @@ public class GameData extends AppCompatActivity {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 selectedRadioButton = findViewById(checkedId);
                 mTempStorage.setAlliance(selectedRadioButton.getText().toString());
+            }
+        });
+
+        radioGroup2 = findViewById(R.id.radioGroup2);
+        radioGroup2.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                selectedRadioButton = findViewById(checkedId);
+                mTempStorage.setMatchType(selectedRadioButton.getText().toString());
             }
         });
 
@@ -400,6 +412,7 @@ public class GameData extends AppCompatActivity {
         //Grabbing points
         gamePointsBox = findViewById(R.id.editText);
         mTempStorage.setPoints(gamePointsBox.getText().toString());
+        mTempStorage.setMatchNum(Integer.valueOf(matchNum.getText().toString()));
 
         if (gamePointsBox.getText().toString().matches("")) {
             Toast.makeText(this, "You must enter a number", Toast.LENGTH_SHORT).show();

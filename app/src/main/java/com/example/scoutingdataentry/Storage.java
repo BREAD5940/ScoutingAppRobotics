@@ -8,6 +8,8 @@ public class Storage {
 
     //Game Data Variables
     String alliance = " ";
+    String matchType = " ";
+    int matchNum = 0;
     int startLevel = 0;
 //    HashMap<String, Integer> =
     int sCargoShip = 0;
@@ -206,6 +208,14 @@ public class Storage {
     public void setAlliance(String alliance) {
         this.alliance = alliance;
     }
+
+    public String getMatchType() { return matchType; }
+
+    public void setMatchType(String matchType) { this.matchType = matchType; }
+
+    public int getMatchNum() { return matchNum; }
+
+    public void setMatchNum(int matchNum) { this.matchNum = matchNum; }
 
     public int getgCargoShip() {
         return gCargoShip;
