@@ -391,7 +391,7 @@ public class Storage {
     }
 
 
-    @Override
+    @Override @Deprecated
     public String toString() {
         System.out.println("STATE OF ISGAMEDATA: " + isGameData.isGameDataCheck());
         if (isGameData.isGameDataCheck()) {
@@ -399,6 +399,14 @@ public class Storage {
         }else{
             return teamNumber + "," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + floorIntake + "," + sidewaysElevator + "," + intakeType + "," + language + "," + dTrainType + "," + wheelSize + "," + weight + "," + elevatorSpeed + "," + highDTrainSpeed + "," + lowDTrainSpeed + "," + elevatorHeight + "," + habScale + "," + roboPiggybacks + "," + strategy + "," + shooter + "," + sandstormType + "," + notes + "\n";
         }
+    }
+
+    public String stringGame(){
+        return matchType+","+matchNum+","+teamNumber + "," + alliance + "," + startLevel + "," + sCargoShip + "," + sCargoRocket + "," + sCargoDrop + "," + sHatchShip + "," + sHatchRocket + "," + sHatchDrop + "," + gCargoShip + "," + gCargoRocket + "," + gCargoDrop + "," + gHatchShip + "," + gHatchRocket + "," + gHatchDrop + "," + endLevel + "," + techFouls + "," + fouls + "," + yellowCard + "," + redCard + "," + broke + "," + points + notes + "\n";
+    }
+
+    public String stringPit(){
+        return floorIntake + "," + sidewaysElevator + "," + intakeType + "," + language + "," + dTrainType + "," + wheelSize + "," + weight + "," + elevatorSpeed + "," + highDTrainSpeed + "," + lowDTrainSpeed + "," + elevatorHeight + "," + habScale + "," + roboPiggybacks + "," + strategy + "," + shooter + "," + sandstormType + "," + notes + "\n";
     }
 
 }

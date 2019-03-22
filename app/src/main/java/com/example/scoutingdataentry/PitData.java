@@ -221,7 +221,7 @@ public class PitData extends AppCompatActivity {
 
         String filename = android_id + "_pitdata.csv";
 
-        writeCSV(toPrint.toString(), filename);
+        writeCSV(toPrint.stringPit(), filename);
 
         startActivity(new Intent(PitData.this, RobotEntry.class));
     }
