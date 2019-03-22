@@ -5,6 +5,7 @@ import android.media.MediaScannerConnection;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.Settings;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
@@ -75,6 +76,7 @@ public class GameData extends AppCompatActivity {
         spinner1.setOnItemSelectedListener(
                 new AdapterView.OnItemSelectedListener() {
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//                        Toast.makeText(GameData.this, "The level the robot starts on. Check the box below if the robot does not get COMPLETELY off the plaform.", Toast.LENGTH_LONG).show();
                         mTempStorage.setStartLevel(Integer.parseInt(parent.getSelectedItem().toString()));
                     }
 
@@ -442,6 +444,8 @@ public class GameData extends AppCompatActivity {
         if(mTempStorage.getAlliance().equals(" ")){
             Toast.makeText(this, "You must enter a robot position", Toast.LENGTH_SHORT).show();
         }
+
+
 
 
         //Grabbing notes
