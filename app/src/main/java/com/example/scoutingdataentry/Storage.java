@@ -24,12 +24,13 @@ public class Storage {
     int gHatchShip = 0;
     int gHatchRocket = 0;
     int gHatchDrop = 0;
-    int endLevel = 0;
+    String endLevel = "0";
     int techFouls = 0;
     int fouls = 0;
     boolean yellowCard = false;
     boolean redCard = false;
     boolean broke = false;
+    boolean noAuto = false;
     String points = " ";
     String notes = " ";
 
@@ -217,6 +218,10 @@ public class Storage {
 
     public void setMatchNum(int matchNum) { this.matchNum = matchNum; }
 
+    public boolean getNoAuto(){ return noAuto; }
+
+    public void setNoAuto(boolean isChecked) {this.noAuto = isChecked;}
+
     public int getgCargoShip() {
         return gCargoShip;
     }
@@ -265,11 +270,11 @@ public class Storage {
         this.gHatchDrop = gHatchDrop;
     }
 
-    public int getEndLevel() {
+    public String getEndLevel() {
         return endLevel;
     }
 
-    public void setEndLevel(int endLevel) {
+    public void setEndLevel(String endLevel) {
         this.endLevel = endLevel;
     }
 
@@ -390,7 +395,7 @@ public class Storage {
     public String toString() {
         System.out.println("STATE OF ISGAMEDATA: " + isGameData.isGameDataCheck());
         if (isGameData.isGameDataCheck()) {
-            return teamNumber + "," + alliance + "," + startLevel + "," + sCargoShip + "," + sCargoRocket + "," + sCargoDrop + "," + sHatchShip + "," + sHatchRocket + "," + sHatchDrop + "," + gCargoShip + "," + gCargoRocket + "," + gCargoDrop + "," + gHatchShip + "," + gHatchRocket + "," + gHatchDrop + "," + endLevel + "," + techFouls + "," + fouls + "," + yellowCard + "," + redCard + "," + broke + "," + points + "," + "," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + notes + "\n";
+            return matchType+","+matchNum+","+teamNumber + "," + alliance + "," + startLevel + "," + sCargoShip + "," + sCargoRocket + "," + sCargoDrop + "," + sHatchShip + "," + sHatchRocket + "," + sHatchDrop + "," + gCargoShip + "," + gCargoRocket + "," + gCargoDrop + "," + gHatchShip + "," + gHatchRocket + "," + gHatchDrop + "," + endLevel + "," + techFouls + "," + fouls + "," + yellowCard + "," + redCard + "," + broke + "," + points + "," + "," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + notes + "\n";
         }else{
             return teamNumber + "," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + " ," + floorIntake + "," + sidewaysElevator + "," + intakeType + "," + language + "," + dTrainType + "," + wheelSize + "," + weight + "," + elevatorSpeed + "," + highDTrainSpeed + "," + lowDTrainSpeed + "," + elevatorHeight + "," + habScale + "," + roboPiggybacks + "," + strategy + "," + shooter + "," + sandstormType + "," + notes + "\n";
         }

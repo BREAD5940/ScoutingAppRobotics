@@ -88,7 +88,7 @@ public class PitData extends AppCompatActivity {
 
         //Robopiggy Backs
         Spinner spinner5 = findViewById(R.id.spinner5);
-        ArrayAdapter<CharSequence> adapter5 = ArrayAdapter.createFromResource(this, R.array.End_Hab_Level, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter5 = ArrayAdapter.createFromResource(this, R.array.Scale_Level, android.R.layout.simple_spinner_item);
         adapter5.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner5.setAdapter(adapter5);
         spinner5.setOnItemSelectedListener(

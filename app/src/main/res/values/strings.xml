@@ -1,14 +1,8 @@
 <resources>
     <string name = "app_name">scoutingdataentry</string>
-    <string-array name = "End_Hab_Level">
-        <item>1</item>
-        <item>2</item>
-    </string-array>
     <string-array name = "Start_Hab_Level">
-        <item>0</item>
         <item>1</item>
         <item>2</item>
-        <item>3</item>
     </string-array>
     <string-array name = "Rocket_Level">
         <item>1</item>
@@ -16,9 +10,11 @@
         <item>3</item>
     </string-array>
     <string-array name = "Scale_Level">
-        <item>0</item>
+		<item>0</item>
+        <item>1</item>
         <item>2</item>
         <item>3</item>
+		<item>Assist</item>
     </string-array>
     <string-array name = "SAC_Teams">
         <item>100</item>

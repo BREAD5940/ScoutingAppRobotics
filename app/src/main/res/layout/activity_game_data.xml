@@ -109,7 +109,7 @@
             </LinearLayout>
 			
 			<EditText
-                android:id="@+id/editText"
+                android:id="@+id/matchNum"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -218,6 +218,12 @@
                     android:spinnerMode="dropdown" />
 
             </LinearLayout>
+			
+			<CheckBox
+                android:id="@+id/checkbox_no_auto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Didn't leave hab in sandstorm" />
 
             <TextView
                 android:id="@+id/textView7"
@@ -1009,15 +1015,30 @@
                     android:layout_height="wrap_content"
                     android:text="Red Card"
                     android:textColor="@android:color/holo_red_dark" />
+					
+				
 
             </LinearLayout>
+			
+			<LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
 
-
-            <CheckBox
-                android:id="@+id/checkbox_broke"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Select if it broke" />
+				<CheckBox
+					android:id="@+id/checkbox_broke"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="Broke" />
+					
+				<CheckBox
+					android:id="@+id/checkbox_broke"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="E-Stop" />
+            
+            </LinearLayout>
 
             <EditText
                 android:id="@+id/editText"
@@ -1025,7 +1046,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="number"
-                android:hint="End Game Points" />
+                android:hint="Final Points" />
 
             <EditText
                 android:id="@+id/editText2"

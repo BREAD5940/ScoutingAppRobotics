@@ -53,6 +53,7 @@ public class GameData extends AppCompatActivity {
     RadioButton selectedRadioButton2;
     RadioGroup radioGroup1;
     RadioButton selectedRadioButton;
+    CheckBox noAuto;
     CheckBox yellowCard;
     CheckBox redCard;
     CheckBox broke;
@@ -84,19 +85,29 @@ public class GameData extends AppCompatActivity {
 
         //End Level Spinner
         Spinner spinner2 = findViewById(R.id.spinner2);
-        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this, R.array.End_Hab_Level, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this, R.array.Scale_Level, android.R.layout.simple_spinner_item);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner2.setAdapter(adapter2);
         spinner2.setOnItemSelectedListener(
                 new AdapterView.OnItemSelectedListener() {
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                        mTempStorage.setEndLevel(Integer.parseInt(parent.getSelectedItem().toString()));
+                        mTempStorage.setEndLevel(parent.getSelectedItem().toString());
                     }
 
                     public void onNothingSelected(AdapterView<?> parent) {
 
                     }
                 });
+        //No auto checkbox
+        noAuto = findViewById(R.id.checkbox_broke);
+        noAuto.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                                             @Override
+                                             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                                                 mTempStorage.setNoAuto(isChecked);
+                                             }
+                                         }
+        );
+
         //Alliance RadioGroup
         radioGroup1 = findViewById(R.id.radioGroup1);
         radioGroup1.setOnCheckedChangeListener(new OnCheckedChangeListener() {
@@ -111,12 +122,11 @@ public class GameData extends AppCompatActivity {
         radioGroup2.setOnCheckedChangeListener(new OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                selectedRadioButton = findViewById(checkedId);
-                mTempStorage.setMatchType(selectedRadioButton.getText().toString());
+                selectedRadioButton2 = findViewById(checkedId);
+                mTempStorage.setMatchType(selectedRadioButton2.getText().toString());
             }
         });
 
-        //Idk what's going on with formatting here
         //Yellow Card Checkbox
         yellowCard = findViewById(R.id.checkbox_yellow);
         yellowCard.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -411,6 +421,7 @@ public class GameData extends AppCompatActivity {
     public void saveData(View view) {
         //Grabbing points
         gamePointsBox = findViewById(R.id.editText);
+        matchNum = findViewById(R.id.matchNum);
         mTempStorage.setPoints(gamePointsBox.getText().toString());
         mTempStorage.setMatchNum(Integer.valueOf(matchNum.getText().toString()));
 
@@ -432,7 +443,7 @@ public class GameData extends AppCompatActivity {
     }
 
     public void writeCSV(String dataToSave, String filename) {
-
+        System.out.println("writing to csv");
         File file = new File(Environment.getExternalStoragePublicDirectory(DIRECTORY_DOWNLOADS), filename);
         FileOutputStream fOut;
         OutputStreamWriter osw;
