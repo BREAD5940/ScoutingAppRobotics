@@ -1,32 +1,21 @@
-package com.example.scoutingdataentry;
+package com.cpjd.main;
 
 import com.cpjd.models.APIStatus;
 import com.cpjd.models.districts.District;
+import com.cpjd.models.events.*;
 import com.cpjd.models.teams.Robot;
 
 import com.cpjd.models.matches.SMatch;
 import com.cpjd.models.teams.STeam;
 import com.cpjd.models.matches.Match;
 import com.cpjd.models.teams.Team;
+import com.cpjd.requests.*;
 import com.cpjd.sorting.Sortable;
 import com.cpjd.sorting.SortingType;
-
+import com.cpjd.utils.IO;
+import com.cpjd.utils.exceptions.DataNotFoundException;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import com.cpjd.requests.DistrictRequest;
-import com.cpjd.requests.MatchRequest;
-import com.cpjd.requests.EventRequest;
-import com.cpjd.requests.OtherRequest;
-import com.cpjd.requests.TeamRequest;
-import com.cpjd.models.events.Event;
-import com.cpjd.models.events.SEvent;
-import com.cpjd.models.events.Award;
-import com.cpjd.models.events.EventOPR;
-import com.cpjd.models.events.EventRanking;
-import com.cpjd.models.events.Media;
-import com.cpjd.models.events.Alliance;
-import com.cpjd.models.events.Insight;
-import android.provider.SyncStateContract.Constants;
 
 import java.util.Arrays;
 
