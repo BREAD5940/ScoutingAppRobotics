@@ -426,9 +426,22 @@ public class GameData extends AppCompatActivity {
         mTempStorage.setMatchNum(Integer.valueOf(matchNum.getText().toString()));
 
         if (gamePointsBox.getText().toString().matches("")) {
-            Toast.makeText(this, "You must enter a number", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "You must enter final points", Toast.LENGTH_SHORT).show();
             return;
         } //keeps game points as a String, checks if anything is entered or not
+
+        if (matchNum.getText().toString().matches("")) {
+            Toast.makeText(this, "You must enter a match number", Toast.LENGTH_SHORT).show();
+            return;
+        } //keeps match as a String, checks if anything is entered or not
+
+        if(mTempStorage.getMatchType().equals(" ")){
+            Toast.makeText(this, "You must enter a match type", Toast.LENGTH_SHORT).show();
+        }
+
+        if(mTempStorage.getAlliance().equals(" ")){
+            Toast.makeText(this, "You must enter a robot position", Toast.LENGTH_SHORT).show();
+        }
 
 
         //Grabbing notes
@@ -486,6 +499,8 @@ public class GameData extends AppCompatActivity {
                 System.out.println("External Storage is NOT Writable to");
             }
         }
+
+        startActivity(new Intent(GameData.this, RobotEntry.class));
 
     }
 

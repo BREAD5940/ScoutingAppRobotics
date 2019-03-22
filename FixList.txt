@@ -9,13 +9,11 @@ UI:
 	- option for elevator levels in match
 	- maybe a subjective 'rating'
 	- maybe information pannels (ex. click on 'i' and it tells you what a tech foul is/what it looks like)
-	- TEST
 
 BACKEND:
 	-  n a m i n g
 	- jfc plz give data validation
 		- eg. if you don't leave the hab in sandstorm, you can't have placed hatches
-	- csv is big ugly
 	- some sort of table joining to better store data
 		- ex a unified table for each team, sorted into mech/design data and indiv match data
 			- we'd need match num input for this
@@ -35,5 +33,7 @@ DONE:
 	- match number
 	- match type (practice, quals, etc.)
 	- option for 'didn't get back on the hab'
+	- csv is big ugly
+	- TEST
 
 
