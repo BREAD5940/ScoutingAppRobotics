@@ -13,11 +13,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".PitData"
-            android:theme="@style/redAndBlack" />
+            android:theme="@style/AppTheme" />
         <activity android:name=".GameData"
-            android:theme="@style/redAndBlack" />
+            android:theme="@style/AppTheme" />
         <activity android:name=".RobotEntry"
-            android:theme="@style/redAndBlack">
+            android:theme="@style/AppTheme">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
 
